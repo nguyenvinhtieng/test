@@ -1,0 +1,20 @@
+$mainColor: #343434;
+$whiteColor: #fff;
+$textColor01: #e0dfdf;
+$grayColor: #ccc;
+
+@mixin sp {
+    @media screen and (max-width: 640px) {
+        @content;
+    }
+}
+
+@mixin pc {
+    @media screen and (min-width: 641px) {
+        @content;
+    }
+}
+
+@function pxToVw($px) {
+    @return ($px / 375) * 100vw;
+}

@@ -1,0 +1,39 @@
+@import "./foundation/_mixin.scss";
+
+// .l-page.top {
+    .nav-top {
+        background-color: $mainColor;
+        &__inner {
+            width: 100%;
+            display: flex;
+        }
+        &__item--link {
+            font-size: 11px;
+            color: $textColor01;
+            margin-right: 18px;
+            font-weight: 400;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        &__search {
+            display: flex;
+            background-color: $grayColor;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        &__search--input {
+            border: none;
+            outline: none;
+        }
+        &__search--button {
+            width: 18px;
+            height: 17px;
+        }
+        &__item--social {}
+        &__item--button {}
+        &__lang {
+            option {}
+        }
+    }
+// }
