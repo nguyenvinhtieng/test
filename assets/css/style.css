@@ -44,4 +44,35 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-/*# sourceMappingURL=style.css.map */
+
+.c-txt-small {
+  font-size: 11px;
+  color: #626262;
+  font-weight: lighter;
+  line-height: 1.2;
+}
+
+.c-breadcrumb {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+}
+.c-breadcrumb li {
+  font-size: 11px;
+  font-weight: lighter;
+  position: relative;
+}
+.c-breadcrumb li::after {
+  content: "/";
+}
+.c-breadcrumb li:last-child::after {
+  content: "";
+}
+.c-breadcrumb li a {
+  color: #909090;
+  text-decoration: underline;
+}
+.c-breadcrumb li span {
+  color: #737373;
+}
