@@ -1,29 +1,25 @@
-import "./styles.css";
-import TodoList from "./TodoList";
-import TodoListHeader from "./TodoListHeader";
-import Form from "./Form";
-import Footer from "./Footer";
-import { Routes, Route } from "react-router-dom";
+import logo from './logo.svg';
+import './App.css';
 
-export default function App() {
+function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
 
-const Home = () => {
-  return (
-    <div className="App">
-      <div className="container">
-        <TodoListHeader />
-        <TodoList />
-        <Form />
-      </div>
-      <Footer />
-    </div>
-  );
-};
+export default App;
