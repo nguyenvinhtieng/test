@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const MONGO_URI = process.env.MONGO_URI;
+
+const MONGO_URI = "mongodb+srv://buimyy2909:RrkVjJcvugxsianA@project.pvfkoao.mongodb.net/";
 
 async function connectDB() {
   try {
@@ -9,9 +10,9 @@ async function connectDB() {
       useCreateIndex: true,
     });
 
-    return "Connect to DB OK";
+    console.log("Connected to MongoDB Atlas");
   } catch (err) {
-    console.log(err);
+    console.error(err);
     throw err;
   }
 }
