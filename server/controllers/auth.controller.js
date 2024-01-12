@@ -116,9 +116,9 @@ const verify = async (req, res) => {
   }
 };
 
-const logout = (req, res) => {
+const signout = (req, res) => {
   return res.json({
-    msg: 'Logout successful!',
+    msg: 'signout successful!',
   });
 };
 
@@ -126,5 +126,5 @@ module.exports = {
   login,
   signup,
   verify,
-  logout,
+  signout,
 };

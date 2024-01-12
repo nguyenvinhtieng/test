@@ -1,17 +1,19 @@
-const express = require('express')
+const express = require('express');
 const router = express.Router();
 
-const {login, signup, verify} = require('../controllers/auth.controller');
+const { login, signup, verify, signOut } = require('../controllers/auth.controller');
 const authMiddleware = require('../middlewares/auth.mdw');
 
+// Sign up
+router.post('/sign-up', signup);
 
-router.post('/signup', signup )
+// Login
+router.post('/login', login);
 
+// Sign out
+router.put('/sign-out', signOut);
 
-// login
-router.post('/login', login)
-
-// verify
-router.post('/verify', authMiddleware, verify)
+// Verify
+router.put('/verify', authMiddleware, verify);
 
 module.exports = router;
