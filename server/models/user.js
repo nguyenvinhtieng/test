@@ -1,4 +1,3 @@
-//schema
 
 const { Schema, default: mongoose } = require("mongoose");
 
@@ -14,7 +13,6 @@ const userSchema = new Schema({
   avatar: String,
 });
 
-// create model
 const User = mongoose.model("users", userSchema);
 
 module.exports = { User };

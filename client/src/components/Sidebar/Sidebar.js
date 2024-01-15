@@ -16,6 +16,9 @@ const Sidebar = () => {
         <Menu.Item key="signup">
           <Link to="/auth/signup">Signup</Link>
         </Menu.Item>
+        <Menu.Item key="projects">
+          <Link to="/projects">Projects</Link>
+        </Menu.Item>
       </Menu>
     </div>
   );

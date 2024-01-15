@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import axios from 'axios';
+import './SignupPage.css'; 
 
 const SignupPage = ({ onSignup }) => {
   const [loading, setLoading] = useState(false);

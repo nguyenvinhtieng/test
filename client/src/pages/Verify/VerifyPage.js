@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import axios from 'axios';
+import './VerifyPage.css';
 
 const VerifyPage = ({ onVerify }) => {
   const [loading, setLoading] = useState(false);
