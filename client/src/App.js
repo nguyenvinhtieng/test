@@ -17,6 +17,9 @@ const { Content } = Layout;
 
 function App() {
   return (
+    <BrowserRouter>
+    
+     </BrowserRouter>
     // <BrowserRouter>
     //   <Layout style={{ minHeight: "100vh" }}>
     //     <Sidebar />
@@ -48,13 +51,15 @@ function App() {
     //     </Layout>
     //   </Layout>
     // </BrowserRouter>
-    <BrowserRouter>
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+
+
+    // <BrowserRouter>
+    //   <div className="container">
+    //     <Routes>
+    //       <Route path="/" element={<HomePage />} />
+    //     </Routes>
+    //   </div>
+    // </BrowserRouter>
   );
 }
 
