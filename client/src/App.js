@@ -11,55 +11,44 @@ import Projects from "./pages/Workspace/MyProjects";
 import Project from "./pages/Workspace/ProjectPage";
 import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
-import { Outlet } from "react-router";
 
 const { Content } = Layout;
 
 function App() {
   return (
     <BrowserRouter>
-    
-     </BrowserRouter>
-    // <BrowserRouter>
-    //   <Layout style={{ minHeight: "100vh" }}>
-    //     <Sidebar />
-    //     <Layout>
-    //       <Content style={{ margin: "24px 16px 0" }}>
-    //         {/* <Routes>
-    //           <Route
-    //             path="/"
-    //             element={
-    //               <RootLayout>
-    //                 <Route path="/" element={<HomePage />} />
-    //                 <Route path="/projects" element={<Projects />} />
-    //                 <Route path="/workspace/:projectId" element={<Project />} />
-    //               </RootLayout>
-    //             }
-    //           />
-    //           <Route
-    //             path="/auth"
-    //             element={
-    //               <AuthLayout>
-    //                 <Route path="login" element={<Login />} />
-    //                 <Route path="signup" element={<Signup />} />
-    //                 <Route path="verify" element={<Verify />} />
-    //               </AuthLayout>
-    //             }
-    //           />
-    //         </Routes> */}
-    //       </Content>
-    //     </Layout>
-    //   </Layout>
-    // </BrowserRouter>
-
-
-    // <BrowserRouter>
-    //   <div className="container">
-    //     <Routes>
-    //       <Route path="/" element={<HomePage />} />
-    //     </Routes>
-    //   </div>
-    // </BrowserRouter>
+      <div className="container">
+        <Layout style={{ minHeight: "100vh" }}>
+          <Sidebar />
+          <Layout>
+            <Content style={{ margin: "24px 16px 0" }}>
+              <Routes>
+                <Route
+                  path="/auth/*"
+                  element={
+                    <AuthLayout>
+                      <Route path="/auth/login" element={<Login />} />
+                      <Route path="/auth/signup" element={<Signup />} />
+                      <Route path="/auth/verify" element={<Verify />} />
+                    </AuthLayout>
+                  }
+                />
+                <Route
+                  path="/*"
+                  element={
+                    <RootLayout>
+                      <Route path="/" element={<HomePage />} />
+                      <Route path="/projects" element={<Projects />} />
+                      <Route path="/workspace/:projectId" element={<Project />} />
+                    </RootLayout>
+                  }
+                />
+              </Routes>
+            </Content>
+          </Layout>
+        </Layout>
+      </div>
+    </BrowserRouter>
   );
 }
 
