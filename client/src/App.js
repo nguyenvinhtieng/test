@@ -33,16 +33,22 @@ function App() {
                     </AuthLayout>
                   }
                 />
-                <Route
-                  path="/*"
+                <Route path="/" element={<RootLayout />}>
+                  <Route path="/home" element={<HomePage />} />
+                </Route>
+                {/* <Route
+                  path="/"
                   element={
                     <RootLayout>
-                      <Route path="/" element={<HomePage />} />
+                      <Route path="/home" element={<HomePage />} />
                       <Route path="/projects" element={<Projects />} />
-                      <Route path="/workspace/:projectId" element={<Project />} />
+                      <Route
+                        path="/workspace/:projectId"
+                        element={<Project />}
+                      />
                     </RootLayout>
                   }
-                />
+                /> */}
               </Routes>
             </Content>
           </Layout>

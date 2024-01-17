@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "antd";
 import "./HomePage.css";
 
 const HomePage = () => {
+  useEffect(() => {
+    console.log("HOME LOG ok");
+  }, []);
   return (
     <div className="homepage-container">
       <h2 className="homepage-heading">Welcome to the Home Page</h2>
