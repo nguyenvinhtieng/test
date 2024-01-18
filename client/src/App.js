@@ -19,22 +19,23 @@ function App() {
     <BrowserRouter>
       <div className="container">
         <Layout style={{ minHeight: "100vh" }}>
-          <Sidebar />
           <Layout>
             <Content style={{ margin: "24px 16px 0" }}>
+            
               <Routes>
-                <Route
-                  path="/auth/*"
-                  element={
-                    <AuthLayout>
-                      <Route path="/auth/login" element={<Login />} />
-                      <Route path="/auth/signup" element={<Signup />} />
-                      <Route path="/auth/verify" element={<Verify />} />
-                    </AuthLayout>
-                  }
-                />
+              <Route path="/home" element={<HomePage />} />
+
+                <Route path="/auth" element={<AuthLayout />}>
+                  <Route path="/auth/login" element={<Login />} />
+                  <Route path="/auth/signup" element={<Signup />} />
+                  <Route path="/auth/verify" element={<Verify />} />
+                </Route>
                 <Route path="/" element={<RootLayout />}>
-                  <Route path="/home" element={<HomePage />} />
+                  <Route path="/projects" element={<Projects />} />
+                      <Route
+                        path="/workspace/:projectId"
+                        element={<Project />}
+                      /> 
                 </Route>
                 {/* <Route
                   path="/"
