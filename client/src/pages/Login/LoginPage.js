@@ -1,34 +1,25 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, message } from 'antd';
 import './LoginPage.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import apiService from '../../config/api.service';
 
 const LoginPage = ({ onLogin, signedUpAccounts }) => {
   const [loading, setLoading] = useState(false);
-
+  const navigate = useNavigate();
   const handleSubmit = async (values) => {
     setLoading(true);
 
     try {
-      const { email, password } = values;
-
-      // Check if the provided credentials match any signed-up account
-      const matchedAccount = signedUpAccounts.find(
-        (account) => account.email === email && account.password === password
-      );
-
-      if (matchedAccount) {
-        // Simulating a server response delay with setTimeout
-        setTimeout(() => {
-          onLogin(matchedAccount);
-          message.success('Login successful!');
-        }, 1000);
-      } else {
-        message.error('Invalid email or password');
-      }
+      const {email, password} = values;
+      const res = await apiService.post('/login', { username: email, password })
+      const token = res.data.token;
+      localStorage.setItem('token', token);
+      message.success('Login successfully!');
+      navigate('/projects');
     } catch (error) {
-      console.error('Failed to login', error);
-      message.error('Failed to login');
+      const messageError = error?.response?.data?.msg;
+      message.error(messageError || 'Failed to signin');
     }
 
     setLoading(false);

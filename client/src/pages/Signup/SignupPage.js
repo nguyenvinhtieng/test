@@ -1,27 +1,21 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, message } from 'antd';
-import axios from 'axios';
 import './SignupPage.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import apiService from '../../config/api.service';
 
 const SignupPage = ({ onSignup }) => {
   const [loading, setLoading] = useState(false);
-
+  const navigate = useNavigate();
   const handleSubmit = async (values) => {
     setLoading(true);
-
     try {
-      const response = await axios.post('/signup', values);
-      onSignup(response.data.user);
-
-      localStorage.setItem('signupUser', JSON.stringify(response.data.user));
-
-      message.success('Signup successful!');
-
-      form.resetFields();
+      await apiService.post('/sign-up', { email: values.email, password: values.password })
+      message.success('Signup successfully! Login now!');
+      navigate('/auth/login');
     } catch (error) {
-      console.error('Failed to signup', error);
-      message.error('Signup failed. Please try again.');
+      const messageError = error?.response?.data?.msg;
+      message.error(messageError || 'Failed to signup');
     }
 
     setLoading(false);

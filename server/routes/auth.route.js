@@ -10,10 +10,10 @@ router.post('/sign-up', signup);
 // Login
 router.post('/login', login);
 
-// Sign out
-router.put('/sign-out', signOut);
+// // Sign out
+// router.put('/sign-out', signOut);
 
-// Verify
-router.put('/verify', authMiddleware, verify);
+// // Verify
+// router.put('/verify', authMiddleware, verify);
 
 module.exports = router;
